@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class firstAppiumTest_ApiDemosDebug {
 
-    //Execute Mobile Command (Executes a native mobile command)
+    //Execute Mobile Command (Executes a native mobile command) -  Used ApiDemosDebug app
     @Test
     public void scrollDown(){
         try {
