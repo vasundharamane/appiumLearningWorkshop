@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.net.URL;
 import java.time.Duration;
 
-public class iOSBasicTest {
+public class BasicTest_iOS {
 
     AppiumDriver driver ;
 
@@ -28,15 +28,12 @@ public class iOSBasicTest {
             driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
-
         }
         catch(Exception e)
         {
             e.printStackTrace();
             Assert.fail();
         }
-
     }
 
     @Test
@@ -46,5 +43,4 @@ public class iOSBasicTest {
         driver.findElement(AppiumBy.accessibilityId("test-Password")).sendKeys("secret_sauce");
         driver.findElement(AppiumBy.accessibilityId("test-LOGIN")).click();
     }
-
 }

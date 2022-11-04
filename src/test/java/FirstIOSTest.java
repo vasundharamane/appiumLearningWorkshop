@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.net.URL;
 import java.time.Duration;
 
-public class firstIOSTest {
+public class FirstIOSTest {
 
     AppiumDriver driver;
 

@@ -12,7 +12,7 @@ import java.io.File;
 import java.net.URL;
 import java.time.Duration;
 
-public class firstAppiumTest_ApiDemosDebug {
+public class FirstAppiumTest_ApiDemosDebug {
 
     //Execute Mobile Command (Executes a native mobile command) -  Used ApiDemosDebug app
     @Test
