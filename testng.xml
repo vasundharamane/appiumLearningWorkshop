@@ -3,7 +3,7 @@
 <suite name = "Android Parallel Run " parallel="tests">
     <test name = "Execution on Emulator1">
         <parameter name="udid" value="emulator-5554" />
-        <parameter name="systemPort" value="5554" />
+        <parameter name="systemPort" value="5559" />
         <parameter name="device" value="Emulator1" />
         <classes>
             <class name ="ParallelRun" />
@@ -11,7 +11,7 @@
     </test>
     <test name = "Execution on Emulator2">
         <parameter name="udid" value="emulator-5556" />
-        <parameter name="systemPort" value="5556" />
+        <parameter name="systemPort" value="5558" />
         <parameter name="device" value="Emulator2" />
         <classes>
             <class name ="ParallelRun" />

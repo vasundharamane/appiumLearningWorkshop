@@ -40,8 +40,8 @@ public class ParallelRun  {
             capabilities.setCapability("appium:newCommandTimeout", 900000);
             capabilities.setCapability("appium:automationName", "UiAutomator2");
             capabilities.setCapability("appium:autoGrantPermissions", true);
-//            capabilities.setCapability("appium:udid", udid);
-            capabilities.setCapability("appium:systemPort", systemPort);
+            capabilities.setCapability("appium:udid", udid);
+//            capabilities.setCapability("appium:systemPort", systemPort);
             capabilities.setCapability("appium:app", apkPath);
             capabilities.setCapability("appium:appWaitForLaunch", false);
             driver = new AndroidDriver(url, capabilities);

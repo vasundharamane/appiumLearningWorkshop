@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -181,7 +182,7 @@ public class FirstAppiumTest_VodQA {
         builder.withIPAddress("127.0.0.1");
         builder.usingPort(4723);
 //        builder.usingAnyFreePort()
-//        builder.withArgument(GeneralServerFlag.LOG_LEVEL ,"warn");
+        builder.withArgument(GeneralServerFlag.LOG_LEVEL ,"warn");
         AppiumDriverLocalService service = AppiumDriverLocalService.buildService(builder);
 
         //start the Server with the builder
