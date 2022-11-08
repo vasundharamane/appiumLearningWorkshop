@@ -87,7 +87,7 @@ public class ParallelRun  {
                     "endY", y
             ));
 
-            //after send keys trial from Appium server it seems that send keys 130 goes to the end
+            //after send keys trial from Appium inspector it seems that send keys 130 goes to the end
             element.sendKeys("130");
 //            Thread.sleep(200);
             Thread.sleep(100);

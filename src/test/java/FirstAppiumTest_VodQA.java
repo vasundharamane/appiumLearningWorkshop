@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
@@ -43,6 +44,7 @@ public class FirstAppiumTest_VodQA {
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
+
             driver.findElement(AppiumBy.accessibilityId("username")).sendKeys("WrongUserName");
             driver.findElement(By.xpath("//android.widget.TextView[@text='LOG IN']")).click();
 
@@ -50,22 +52,30 @@ public class FirstAppiumTest_VodQA {
 //            if (driver.findElement(By.id("android:id/title_template")).isDisplayed())
 //                System.out.println("popup appeared");
 //            else System.out.println("popup did not appeared");
+            WebElement errorPopup = driver.findElement(By.id("android:id/parentPanel"));
 
-            Assert.assertEquals(driver.findElement(By.id("android:id/title_template")).isDisplayed(), true, "Check if invalid Credential popup appeared");
-
+            Assert.assertEquals(errorPopup.isDisplayed(), true, "Check if invalid Credential popup appeared");
 
 //            take screenshot method-1
             File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileHandler.copy(source, new File("target/QED_Page_Screenshot.png"));
+            FileHandler.copy(source, new File("target/invalidCredentialPopup1.png"));
 
             //take Screenshot method-2
             String base64code = driver.getScreenshotAs(OutputType.BASE64);
             String replaceBase64 = base64code.replaceAll("\n","");
             byte[] byteArr = Base64.getDecoder().decode(replaceBase64.getBytes(StandardCharsets.UTF_8));
-            File destFile = new File("target/invalidCredentialPopup.png");
+            File destFile = new File("target/invalidCredentialPopup2.png");
 		    FileOutputStream fos = new FileOutputStream(destFile);
 		    fos.write(byteArr);
 		    fos.close();
+
+            //take Screenshot method-3
+            File source1= driver.getScreenshotAs(OutputType.FILE);
+            FileHandler.copy(source1, new File("target/invalidCredentialPopup3.png"));
+
+            //Selenium 4 feature to take screenshot of particular element
+            File source2= errorPopup.getScreenshotAs(OutputType.FILE);
+            FileHandler.copy(source2, new File("target/errorPopup.png"));
 
             driver.quit();
 
@@ -176,6 +186,8 @@ public class FirstAppiumTest_VodQA {
         AppiumServiceBuilder builder = new AppiumServiceBuilder();
         builder.withIPAddress("127.0.0.1");
         builder.usingPort(4723);
+//        builder.usingAnyFreePort()
+//        builder.withArgument(GeneralServerFlag.LOG_LEVEL ,"warn");
         AppiumDriverLocalService service = AppiumDriverLocalService.buildService(builder);
 
         //start the Server with the builder
