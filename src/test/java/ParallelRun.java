@@ -40,8 +40,8 @@ public class ParallelRun  {
             capabilities.setCapability("appium:newCommandTimeout", 900000);
             capabilities.setCapability("appium:automationName", "UiAutomator2");
             capabilities.setCapability("appium:autoGrantPermissions", true);
-            capabilities.setCapability("appium:udid", udid);
-//            capabilities.setCapability("appium:systemPort", systemPort);
+//            capabilities.setCapability("appium:udid", udid);
+            capabilities.setCapability("appium:systemPort", systemPort);
             capabilities.setCapability("appium:app", apkPath);
             capabilities.setCapability("appium:appWaitForLaunch", false);
             driver = new AndroidDriver(url, capabilities);
@@ -88,7 +88,7 @@ public class ParallelRun  {
             ));
 
             //after send keys trial from Appium inspector it seems that send keys 130 goes to the end
-            element.sendKeys("130");
+            element.sendKeys("100");
 //            Thread.sleep(200);
             Thread.sleep(100);
             driver.quit();
